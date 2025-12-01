@@ -213,7 +213,7 @@
                         <strong>Basic Card</strong><span>Minimal White</span>
                     </button>
                     <button class="download-btn" onclick="generatePDF('premium-landscape')">
-                        <strong>Premium Landscape</strong><span>Bold Black</span>
+                        <strong>Premium Landscape</strong><span>Bold Black (New Design)</span>
                     </button>
                     <button class="download-btn" onclick="generatePDF('premium-vertical')">
                         <strong>Premium Vertical</strong><span>Modern Portrait</span>
@@ -446,9 +446,15 @@
                 doc.line(x, y + size * 0.2, x + size / 2, y + size * 0.5);
                 doc.line(x + size, y + size * 0.2, x + size / 2, y + size * 0.5);
             } else if (type === 'website') {
-                doc.circle(x + size / 2, y + size / 2, size / 2, 'S');
-                doc.line(x, y + size / 2, x + size, y + size / 2); 
-                doc.line(x + size / 2, y, x + size / 2, y + size); 
+                // UPDATED: Browser Window Icon
+                // Main window body
+                doc.rect(x, y + size * 0.1, size, size * 0.7, 'S');
+                // Title bar line
+                doc.line(x, y + size * 0.3, x + size, y + size * 0.3);
+                // Little "buttons" in the title bar
+                const buttonSize = size * 0.06;
+                doc.circle(x + size*0.15, y + size*0.2, buttonSize, 'F'); // Filled dot 1
+                doc.circle(x + size*0.35, y + size*0.2, buttonSize, 'F'); // Filled dot 2
             }
         }
 
